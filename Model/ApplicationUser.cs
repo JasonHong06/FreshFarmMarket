@@ -6,14 +6,14 @@ namespace FreshFarmMarket.Model
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FullName { get; set; }
-        public string Gender { get; set; }
-        public string MobileNo { get; set; }
-        public string DeliveryAddress { get; set; }
-        public string EncryptedCreditCardNo { get; set; }
-        public string ProfilePhotoPath { get; set; }
-        public string AboutMe { get; set; }
-        public string CurrentSessionId { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string Gender { get; set; } = string.Empty;
+        public string MobileNo { get; set; } = string.Empty;
+        public string DeliveryAddress { get; set; } = string.Empty;
+        public string EncryptedCreditCardNo { get; set; } = string.Empty;
+        public string ProfilePhotoPath { get; set; } = string.Empty;
+        public string AboutMe { get; set; } = string.Empty;
+        public string CurrentSessionId { get; set; } = string.Empty;
 
         // ✅ Track last password change date
         public DateTime LastPasswordChangeDate { get; set; } = DateTime.UtcNow;
