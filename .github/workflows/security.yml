@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  security-events: write  # ✅ Allow GitHub Actions to report security events
+
 jobs:
   security-check:
     runs-on: ubuntu-latest
@@ -16,7 +20,8 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 9.0
+        dotnet-version: 8.0.x  # ✅ Use .NET 8.0 instead of 9.0
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
