@@ -1,0 +1,20 @@
+﻿@page
+@model FreshFarmMarket.Pages.ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm Email";
+}
+
+<h2>Email Confirmation</h2>
+
+@if (Model.Success)
+{
+    <div class="alert alert-success">
+        Your email has been successfully confirmed! <a href="/login">Login here</a>.
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        Invalid or expired confirmation link.
+    </div>
+}

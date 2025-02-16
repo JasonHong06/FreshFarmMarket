@@ -1,0 +1,16 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<h2>Logging out...</h2>
+<p>You are being logged out. Redirecting...</p>
+
+@section Scripts {
+    <script>
+        setTimeout(function () {
+            window.location.href = '/Index'; // Redirect after logout
+        }, 2000);
+    </script>
+}

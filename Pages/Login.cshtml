@@ -1,0 +1,33 @@
+﻿@page
+@model FreshFarmMarket.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+@if (Model.IsLockedOut)
+{
+    <div class="alert alert-danger">Your account has been locked due to multiple failed login attempts. Please try again in 5 minutes.</div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" asp-for="Email" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" asp-for="Password" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+@if (Model.LoginFailed)
+{
+    <div class="alert alert-danger mt-3">Invalid login attempt. Please check your email and password.</div>
+}
