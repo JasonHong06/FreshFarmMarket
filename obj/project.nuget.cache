@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YAXvHSWmApM=",
+  "dgSpecHash": "ad/cUs01ays=",
   "success": true,
   "projectFilePath": "C:\\Users\\jason\\source\\FreshFarmMarket\\FreshFarmMarket\\FreshFarmMarket.csproj",
   "expectedPackageFiles": [
@@ -136,7 +136,8 @@
     "C:\\Users\\jason\\.nuget\\packages\\system.text.json\\9.0.2\\system.text.json.9.0.2.nupkg.sha512",
     "C:\\Users\\jason\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\jason\\.nuget\\packages\\system.threading.tasks.extensions\\4.6.0\\system.threading.tasks.extensions.4.6.0.nupkg.sha512",
-    "C:\\Users\\jason\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\jason\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\jason\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.200\\microsoft.net.sdk.compilers.toolset.9.0.200.nupkg.sha512"
   ],
   "logs": []
 }

@@ -6,7 +6,8 @@ namespace FreshFarmMarket.Helpers
 {
     public static class EncryptionHelper
     {
-        private static string _encryptionKey;
+        private static string? _encryptionKey;
+
 
         public static void Configure(IConfiguration configuration)
         {
@@ -16,7 +17,8 @@ namespace FreshFarmMarket.Helpers
         public static string Encrypt(string plainText)
         {
             using var aes = Aes.Create();
-            aes.Key = Encoding.UTF8.GetBytes(_encryptionKey);
+            aes.Key = Encoding.UTF8.GetBytes(_encryptionKey ?? throw new InvalidOperationException("Encryption key not configured."));
+
             aes.GenerateIV();
 
             using var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
@@ -36,7 +38,12 @@ namespace FreshFarmMarket.Helpers
             using var aes = Aes.Create();
             var iv = new byte[aes.IV.Length];
             Array.Copy(fullCipher, iv, iv.Length);
+            if (string.IsNullOrEmpty(_encryptionKey))
+            {
+                throw new InvalidOperationException("Encryption key not configured.");
+            }
             aes.Key = Encoding.UTF8.GetBytes(_encryptionKey);
+
 
             using var decryptor = aes.CreateDecryptor(aes.Key, iv);
             using var ms = new MemoryStream(fullCipher, iv.Length, fullCipher.Length - iv.Length);

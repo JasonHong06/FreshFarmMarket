@@ -6,8 +6,8 @@ namespace FreshFarmMarket.Pages.Errors
 {
     public class ErrorModel : PageModel
     {
-        public int StatusCode { get; set; }
-        public string ErrorMessage { get; set; }
+        public new int StatusCode { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public void OnGet(int? statusCode)
         {

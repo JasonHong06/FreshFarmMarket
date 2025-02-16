@@ -21,11 +21,11 @@ namespace FreshFarmMarket.Data
 
             // ✅ Store password history as a JSON array in SQL
             builder.Entity<ApplicationUser>()
-                .Property(u => u.PreviousPasswords)
-                .HasConversion(
-                    v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
-                    v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null) ?? new List<string>()
-                );
+    .Property(u => u.PreviousPasswords)
+    .HasConversion(
+        v => JsonSerializer.Serialize(v, JsonSerializerOptions.Default), // ✅ Use Default Options
+        v => JsonSerializer.Deserialize<List<string>>(v, JsonSerializerOptions.Default) ?? new List<string>() // ✅ Ensure List is Never Null
+    );
         }
     }
 }

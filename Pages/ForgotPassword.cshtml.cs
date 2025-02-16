@@ -19,7 +19,7 @@ namespace FreshFarmMarket.Pages
         }
 
         [BindProperty]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         public bool EmailSent { get; private set; }
 
@@ -36,7 +36,11 @@ namespace FreshFarmMarket.Pages
             {
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var resetLink = Url.Page("/ResetPassword", null, new { token, email = user.Email }, Request.Scheme);
-                await _emailSender.SendEmailAsync(user.Email, "Password Reset", $"Click <a href='{resetLink}'>here</a> to reset your password.");
+                if (!string.IsNullOrEmpty(user.Email))
+                {
+                    await _emailSender.SendEmailAsync(user.Email, "Password Reset", $"Click <a href='{resetLink}'>here</a> to reset your password.");
+                }
+                   
             }
 
             EmailSent = true; // Always return success, even if the email is invalid

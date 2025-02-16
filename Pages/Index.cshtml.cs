@@ -13,7 +13,7 @@ public class IndexModel : PageModel
         _userManager = userManager;
     }
 
-    public string DecryptedCreditCard { get; private set; }
+    public string DecryptedCreditCard { get; private set; } = string.Empty;
 
     public async Task OnGetAsync()
     {

@@ -15,7 +15,7 @@ namespace FreshFarmMarket.Helpers
                 string logEntry = $"{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} | UserID: {userId} | Action: {action} | Details: {details}";
 
                 // Ensure Logs directory exists
-                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
+                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath) ?? "Logs");
 
                 // Append log entry to the file
                 File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
@@ -73,7 +73,7 @@ namespace FreshFarmMarket.Helpers
             try
             {
                 string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Logs", "UserActivity.log");
-                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
+                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath) ?? "Logs");
                 File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
             }
             catch (Exception ex)

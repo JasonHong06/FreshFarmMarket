@@ -10,27 +10,29 @@ namespace FreshFarmMarket.Pages
 {
     public class ResetPasswordModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        public required UserManager<ApplicationUser> _userManager { get; init; }
+
 
         public ResetPasswordModel(UserManager<ApplicationUser> userManager)
         {
-            _userManager = userManager;
+            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
 
-        [BindProperty]
-        public string Token { get; set; }
 
         [BindProperty]
-        public string Email { get; set; }
+        public string Token { get; set; } = string.Empty;
+
+        [BindProperty]
+        public string Email { get; set; } = string.Empty;
 
         [BindProperty]
         [Required, DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
         [BindProperty]
         [Required, DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
-        public string ConfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; } = string.Empty;
 
         public bool ResetSuccessful { get; set; } = false;
 

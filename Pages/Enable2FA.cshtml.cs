@@ -23,13 +23,13 @@ namespace FreshFarmMarket.Pages
         }
 
         [BindProperty]
-        public string QRCodeImage { get; set; }
+        public string QRCodeImage { get; set; } = string.Empty;
 
         [BindProperty]
-        public string ManualEntryKey { get; set; }
+        public string? ManualEntryKey { get; set; } = string.Empty;
 
         [BindProperty]
-        public string VerificationCode { get; set; }
+        public string VerificationCode { get; set; } = string.Empty;
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -54,7 +54,8 @@ namespace FreshFarmMarket.Pages
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToPage("/Login");
 
-            var isValid = await _userManager.VerifyTwoFactorTokenAsync(user, TokenOptions.DefaultAuthenticatorProvider, VerificationCode);
+            var isValid = await _userManager.VerifyTwoFactorTokenAsync(user, TokenOptions.DefaultAuthenticatorProvider, VerificationCode ?? string.Empty);
+
             if (!isValid)
             {
                 ModelState.AddModelError("", "Invalid verification code.");

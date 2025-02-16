@@ -21,8 +21,8 @@ namespace FreshFarmMarket.Pages
             _userManager = userManager;
         }
 
-        [BindProperty] public string Email { get; set; }
-        [BindProperty] public string Password { get; set; }
+        [BindProperty] public string Email { get; set; } = string.Empty;
+        [BindProperty] public string Password { get; set; } = string.Empty;
         public bool LoginFailed { get; set; } = false;
         public bool IsLockedOut { get; set; } = false;
 
@@ -35,9 +35,11 @@ namespace FreshFarmMarket.Pages
             Password = SanitizeInput(Password);
 
             var user = await _userManager.FindByEmailAsync(Email);
+
+            // ✅ If user is null, log as "Unknown"
             if (user == null)
             {
-                AuditLogger.LogAction(Email, "Failed Login Attempt", "Invalid credentials");
+                AuditLogger.LogAction("Unknown", "Failed Login Attempt", "Invalid credentials");
                 LoginFailed = true;
                 return Page();
             }
@@ -55,18 +57,19 @@ namespace FreshFarmMarket.Pages
                 string ipAddress = GetClientIp();
                 string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
 
-                // ✅ Log login attempt
-                AuditLogger.LogAction(user.Email, "User logged in", $"IP: {ipAddress}, Timestamp: {timestamp}");
+                // ✅ Log login attempt with fallback userId
+                AuditLogger.LogAction(user?.Id ?? "Unknown", "User logged in", $"IP: {ipAddress}, Timestamp: {timestamp}");
 
                 return RedirectToPage("/Index");
             }
 
-            // Log failed login attempt
-            AuditLogger.LogAction(user.Email, "Failed Login Attempt", "Invalid credentials");
+            // ✅ Log failed login attempt with fallback userId
+            AuditLogger.LogAction(user?.Id ?? "Unknown", "Failed Login Attempt", "Invalid credentials");
 
             LoginFailed = true;
             return Page();
         }
+
 
         private string GetClientIp()
         {

@@ -12,6 +12,7 @@ using System;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace FreshFarmMarket.Pages
 {
@@ -51,12 +52,21 @@ namespace FreshFarmMarket.Pages
             }
 
             // ✅ Validate reCAPTCHA token
-            var isHuman = await VerifyReCaptcha(Request.Form["g-recaptcha-response"]);
+
+            var reCaptchatoken = Request.Form["g-recaptcha-response"].ToString();
+            if (string.IsNullOrEmpty(reCaptchatoken))
+            {
+                ModelState.AddModelError("", "Invalid reCAPTCHA response.");
+                return Page();
+            }
+
+            var isHuman = await VerifyReCaptcha(reCaptchatoken ?? string.Empty);
             if (!isHuman)
             {
                 ModelState.AddModelError(string.Empty, "reCAPTCHA validation failed. Please try again.");
                 return Page();
             }
+
 
             var existingUser = await _userManager.FindByEmailAsync(Model.Email);
             if (existingUser != null)
@@ -129,9 +139,27 @@ namespace FreshFarmMarket.Pages
             var secretKey = "6LdXb9UqAAAAAPmi6JEOAAlN9E2FvvKs8N52h_5m";
             var response = await client.PostAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={token}", null);
             var jsonResponse = await response.Content.ReadAsStringAsync();
-            dynamic result = JObject.Parse(jsonResponse);
-            return result.success == "true" && result.score >= 0.5;
+
+            if (string.IsNullOrEmpty(jsonResponse))
+            {
+                // Log or handle empty response
+                return false;
+            }
+
+            try
+            {
+                dynamic result = JObject.Parse(jsonResponse);
+                return result.success == "true" && result.score >= 0.5;
+            }
+            catch (JsonReaderException ex)
+            {
+                // Log or handle JSON parsing error
+                Console.WriteLine($"JSON parsing error: {ex.Message}");
+                return false;
+            }
         }
+
+
 
         private string EncryptCreditCard(string creditCardNo) => EncryptionHelper.Encrypt(creditCardNo);
 

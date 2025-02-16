@@ -13,26 +13,28 @@ namespace FreshFarmMarket.Pages
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        public required UserManager<ApplicationUser> _userManager { get; init; }
+        public required SignInManager<ApplicationUser> _signInManager { get; init; }
+
 
         private const int PasswordHistoryLimit = 2;  // Prevent last 2 passwords from being reused
         private static readonly TimeSpan MinPasswordAge = TimeSpan.FromMinutes(5);  // Prevent changing too soon
         private static readonly TimeSpan MaxPasswordAge = TimeSpan.FromDays(90);  // Require change after 90 days
 
         public ChangePasswordModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
+{
+    _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+    _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
+}
+
 
         [BindProperty]
         [Required, DataType(DataType.Password)]
-        public string CurrentPassword { get; set; }
+        public string CurrentPassword { get; set; } = string.Empty;
 
         [BindProperty]
         [Required, DataType(DataType.Password)]
-        public string NewPassword { get; set; }
+        public string NewPassword { get; set; } = string.Empty;
 
         public void OnGet() { }
 

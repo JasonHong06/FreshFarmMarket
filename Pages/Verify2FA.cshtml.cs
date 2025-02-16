@@ -16,7 +16,8 @@ namespace FreshFarmMarket.Pages
         }
 
         [BindProperty]
-        public string VerificationCode { get; set; }
+        public string VerificationCode { get; set; } = string.Empty;
+
 
         public async Task<IActionResult> OnPostAsync()
         {

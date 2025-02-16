@@ -28,7 +28,7 @@
                         </li>
 
                         <!-- Add logout link here, conditional on user being logged in -->
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User.Identity?.IsAuthenticated == true)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="/logout">Logout</a>

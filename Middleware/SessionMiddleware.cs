@@ -19,12 +19,14 @@ namespace FreshFarmMarket.Middleware
 
         public async Task Invoke(HttpContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
-            if (context.User.Identity.IsAuthenticated)
+            if (context.User.Identity?.IsAuthenticated == true)
+
             {
                 var user = await userManager.GetUserAsync(context.User);
                 if (user != null)
                 {
-                    string lastActivity = context.Session.GetString("LastActivity");
+                    string? lastActivity = context.Session.GetString("LastActivity");
+
                     if (!string.IsNullOrEmpty(lastActivity))
                     {
                         DateTime lastActivityTime = DateTime.Parse(lastActivity);
@@ -32,7 +34,8 @@ namespace FreshFarmMarket.Middleware
                         // ✅ Auto logout after inactivity
                         if (DateTime.UtcNow.Subtract(lastActivityTime).TotalMinutes > SessionTimeoutMinutes)
                         {
-                            user.CurrentSessionId = null;
+                            user.CurrentSessionId = string.Empty; // ✅ Use empty string instead of null
+
                             await userManager.UpdateAsync(user);
 
                             await signInManager.SignOutAsync();
@@ -46,7 +49,8 @@ namespace FreshFarmMarket.Middleware
                     context.Session.SetString("LastActivity", DateTime.UtcNow.ToString());
 
                     // ✅ Prevent multiple logins
-                    string sessionId = context.Session.GetString("UserSessionId");
+                    string? sessionId = context.Session.GetString("UserSessionId");
+
                     if (sessionId == null || user.CurrentSessionId != sessionId)
                     {
                         await signInManager.SignOutAsync();

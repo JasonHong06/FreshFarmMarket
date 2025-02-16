@@ -21,8 +21,6 @@ C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Azure.Cor
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Humanizer.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
@@ -42,18 +40,7 @@ C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Identity.Client.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
@@ -76,13 +63,11 @@ C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Co
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Composition.TypedParts.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Drawing.Common.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Memory.Data.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Runtime.Caching.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Security.Permissions.dll
-C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\System.Windows.Extensions.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\nl\AspNetCore.ReCaptcha.resources.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
@@ -247,3 +232,5 @@ C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\runtimes\
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\AspNetCoreRateLimit.dll
 C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\Azure.Security.KeyVault.Secrets.dll
+C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\bin\Debug\net9.0\global.json
+C:\Users\jason\source\FreshFarmMarket\FreshFarmMarket\obj\Debug\net9.0\FreshFarmMarket.sourcelink.json

@@ -13,7 +13,7 @@ namespace FreshFarmMarket.Model
         public string EncryptedCreditCardNo { get; set; } = string.Empty;
         public string ProfilePhotoPath { get; set; } = string.Empty;
         public string AboutMe { get; set; } = string.Empty;
-        public string CurrentSessionId { get; set; } = string.Empty;
+        public string? CurrentSessionId { get; set; }
 
         // ✅ Track last password change date
         public DateTime LastPasswordChangeDate { get; set; } = DateTime.UtcNow;

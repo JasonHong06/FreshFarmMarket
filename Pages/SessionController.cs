@@ -10,8 +10,9 @@ namespace FreshFarmMarket.Pages
 
         public static bool IsSessionActive(string userId, string sessionId)
         {
-            return ActiveSessions.TryGetValue(userId, out string activeSession) && activeSession == sessionId;
+            return ActiveSessions.TryGetValue(userId, out var activeSession) && (activeSession ?? "") == sessionId;
         }
+
 
         public static void SetActiveSession(string userId, string sessionId)
         {
